@@ -8,7 +8,10 @@ type RequestOption = Taro.request.Option & { query?: Record<string, any> }
 
 const urlWithQuery = (url: string, query?: Record<string, any>) => {
   if (R.isNil(query) || R.isEmpty(query)) return url
-  const queryStr = QueryString.stringify(query)
+
+  // 默认数组型参数无法在小程序中使用
+  // 需要进行转化
+  const queryStr = QueryString.stringify(query, { arrayFormat: 'repeat', allowDots: true })
   return `${url}?${queryStr}`
 }
 
@@ -39,13 +42,11 @@ function taroRequestAsync<T>(options: Taro.request.Option) {
 
 export const http = {
   get<T>(url: string, query?: RequestOption['query'], options?: Omit<RequestOption, 'url' | 'data' | 'query'>) {
-    const removeNil = R.isNotNil(query) && R.isNotEmpty(query) ? query : null
-    return taroRequestAsync<T>({ url, method: 'GET', data: removeNil, ...options })
+    return taroRequestAsync<T>({ url: urlWithQuery(url, query), method: 'GET', ...options })
   },
 
   delete<T>(url: string, query?: RequestOption['query'], options?: Omit<RequestOption, 'url' | 'data' | 'query'>) {
-    const removeNil = R.isNotNil(query) && R.isNotEmpty(query) ? query : null
-    return taroRequestAsync<T>({ url, method: 'DELETE', data: removeNil, ...options })
+    return taroRequestAsync<T>({ url: urlWithQuery(url, query), method: 'DELETE', ...options })
   },
 
   post<T>(url: string, data?: RequestOption['data'], options?: Omit<RequestOption, 'url' | 'data'>) {

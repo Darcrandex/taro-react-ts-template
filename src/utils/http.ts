@@ -23,11 +23,7 @@ function taroRequestAsync<T>(options: Taro.request.Option) {
     const optionsWithDefaults = {
       ...options,
       url: `${baseUrl}${options.url}`,
-      header: {
-        'Content-Type': 'application/json',
-        token,
-        ...options.header
-      }
+      header: { ...options.header, token }
     }
 
     Taro.request<T>(optionsWithDefaults)

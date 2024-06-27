@@ -8,6 +8,7 @@
 import { cls } from '@/utils/cls'
 import { SafeArea } from '@nutui/nutui-react-taro'
 import Taro, { useRouter } from '@tarojs/taro'
+import './styles.less'
 
 const tabs = [
   { title: 'Home', path: '/pages/(tabs)/home/index' },
@@ -20,12 +21,12 @@ export default function TabBar() {
 
   return (
     <>
-      <footer className='bg-purple-300'>
+      <footer className='bg-white tab-bar'>
         <nav className='flex'>
           {tabs.map(({ title, path }) => (
             <div
               key={path}
-              className={cls('flex-1 py-2 text-center', currPath === path && 'text-rose-500')}
+              className={cls('flex-1 py-2 text-center', currPath === path ? 'text-primary' : 'text-gray-900')}
               onClick={() => Taro.switchTab({ url: path })}
             >
               <span>{title}</span>

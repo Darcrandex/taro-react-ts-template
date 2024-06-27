@@ -6,14 +6,14 @@
 
 import TabBar from '@/components/TabBar'
 import TopNav from '@/components/TopNav'
-import { http } from '@/utils/http'
+import { topicService } from '@/services/topic'
 import { useQuery } from '@tanstack/react-query'
 import Taro from '@tarojs/taro'
 
 export default function Home() {
   const { data } = useQuery({
     queryKey: ['post', 'pages'],
-    queryFn: () => http.get<Array<AppSchema.PostItem>>('/posts'),
+    queryFn: () => topicService.pages(),
     select: (res) => res.data
   })
 

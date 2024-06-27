@@ -5,7 +5,7 @@
  */
 
 import TopNav from '@/components/TopNav'
-import { http } from '@/utils/http'
+import { topicService } from '@/services/topic'
 import { useQuery } from '@tanstack/react-query'
 import { useRouter } from '@tarojs/taro'
 
@@ -14,7 +14,7 @@ export default function PostDetail() {
   const { data } = useQuery({
     enabled: !!id,
     queryKey: ['post', id],
-    queryFn: () => http.get<AppSchema.PostItem>(`/posts/${id}`),
+    queryFn: () => topicService.detail(id),
     select: (res) => res.data
   })
 

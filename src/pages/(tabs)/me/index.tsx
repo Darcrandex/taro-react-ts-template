@@ -27,7 +27,7 @@ export default function Me() {
         <TopNav title='Me' />
 
         <div className='flex-1'>
-          {R.isNotNil(info) ? (
+          {R.isNotEmpty(info) ? (
             <>
               <h2 className='m-4 text-center text-2xl'>{info?.name}</h2>
               <p className='text-center'>

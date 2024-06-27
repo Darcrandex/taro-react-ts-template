@@ -17,18 +17,15 @@ export default function TopNav(props: TopNavProps) {
 
   return (
     <>
-      <header className={cls('bg-sky-300', props.className)}>
-        <div style={{ height: menuRect.top }}></div>
+      <header className={cls('bg-primary', props.className)}>
+        <div style={{ height: menuRect.top - spacing }}></div>
 
-        <div
-          className='flex items-center'
-          style={{ height: menuRect.height, paddingLeft: spacing, paddingRight: spacing }}
-        >
+        <div className='flex items-center' style={{ height: menuRect.height, padding: spacing }}>
           <aside style={{ width: menuRect.width }}>
             {canGoback && <span onClick={() => Taro.navigateBack()}>返回</span>}
           </aside>
 
-          <span className='flex-1 text-center'>{props.title}</span>
+          <span className='flex-1 text-center text-gray-900'>{props.title}</span>
 
           <aside style={{ width: menuRect.width }}></aside>
         </div>

@@ -14,7 +14,8 @@ export default function PostDetail() {
   const { data } = useQuery({
     enabled: !!id,
     queryKey: ['post', id],
-    queryFn: () => http.get<AppSchema.PostItem>(`/posts/${id}`)
+    queryFn: () => http.get<AppSchema.PostItem>(`/posts/${id}`),
+    select: (res) => res.data
   })
 
   return (

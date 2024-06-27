@@ -22,3 +22,8 @@
 - env 不能直接访问 `process.env`, 必须访问 `process.env.TARO_APP_${key}`, 否则报错
 - tailwindcss 所有 `transform` 样式类不生效
 - [调试-预览报错：Error: 非法的文件](https://developers.weixin.qq.com/community/minihome/doc/00064018e8c52030127c4134f5b400) 调试器勾选 _将 JS 编译成 ES5_
+
+## todo
+
+- 图标方案
+- 数据请求方案升级

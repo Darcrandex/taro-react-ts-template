@@ -13,7 +13,8 @@ import Taro from '@tarojs/taro'
 export default function Home() {
   const { data } = useQuery({
     queryKey: ['post', 'pages'],
-    queryFn: () => http.get<Array<AppSchema.PostItem>>('/posts')
+    queryFn: () => http.get<Array<AppSchema.PostItem>>('/posts'),
+    select: (res) => res.data
   })
 
   return (

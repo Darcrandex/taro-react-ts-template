@@ -12,7 +12,7 @@
 - typescript
 - tailwindcss
 - jotai
-- react-query
+- react-query + axios-miniprogram
 - nut UI
 
 ## 坑

@@ -7,19 +7,27 @@
 import TabBar from '@/components/TabBar'
 import TopNav from '@/components/TopNav'
 import { useUserInfo } from '@/stores/useUserInfo'
-import { Button } from '@nutui/nutui-react-taro'
+import { Button, Image } from '@nutui/nutui-react-taro'
+import { useMutation } from '@tanstack/react-query'
 import * as R from 'ramda'
 
 export default function Me() {
   const [info, setInfo] = useUserInfo()
 
-  const onLogin = () => {
-    setInfo({ name: 'darcrand', id: '001' })
-  }
+  const loginAction = useMutation({
+    mutationFn: async () => {
+      setInfo({
+        id: Math.random().toString(),
+        name: 'darcrand'
+      })
+    }
+  })
 
-  const onLogout = () => {
-    setInfo(null)
-  }
+  const logoutAction = useMutation({
+    mutationFn: async () => {
+      setInfo(null)
+    }
+  })
 
   return (
     <>
@@ -29,16 +37,19 @@ export default function Me() {
         <div className='flex-1'>
           {R.isNotNil(info) ? (
             <>
+              <div>
+                <Image className='mx-auto my-4' width={120} src={info?.avatar} mode='widthFix' />
+              </div>
               <h2 className='m-4 text-center text-2xl'>{info?.name}</h2>
               <p className='text-center'>
-                <Button onClick={onLogout}>退出登录</Button>
+                <Button onClick={() => logoutAction.mutate()}>logout</Button>
               </p>
             </>
           ) : (
             <>
               <p className='text-center m-4'>
-                <Button type='primary' onClick={onLogin}>
-                  立即登录
+                <Button type='primary' onClick={() => loginAction.mutate()}>
+                  login
                 </Button>
               </p>
             </>

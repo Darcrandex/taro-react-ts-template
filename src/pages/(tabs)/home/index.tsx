@@ -25,7 +25,11 @@ export default function Home() {
         <div className='flex-1 overflow-auto'>
           <ul className='m-4 space-y-4'>
             {data?.map(({ id, title }) => (
-              <li key={id} onClick={() => Taro.navigateTo({ url: `/packages/(post)/pages/[id]/index?id=${id}` })}>
+              <li
+                key={id}
+                className='text-lg text-gray-800 p-2 rounded-lg bg-gray-100'
+                onClick={() => Taro.navigateTo({ url: `/packages/(post)/pages/[id]/index?id=${id}` })}
+              >
                 {title}
               </li>
             ))}

@@ -22,7 +22,7 @@ export default function TopNav(props: TopNavProps) {
 
         <div className='flex items-center' style={{ height: menuRect.height, padding: spacing }}>
           <aside style={{ width: menuRect.width }}>
-            {canGoback && <span onClick={() => Taro.navigateBack()}>返回</span>}
+            {canGoback && <span onClick={() => Taro.navigateBack()}>Back</span>}
           </aside>
 
           <span className='flex-1 text-center text-gray-900'>{props.title}</span>

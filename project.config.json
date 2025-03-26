@@ -1,0 +1,15 @@
+{
+  "miniprogramRoot": "./dist",
+  "projectname": "taro-react-template",
+  "description": "",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "compileHotReLoad": false,
+    "postcss": false,
+    "minified": true
+  },
+  "compileType": "miniprogram"
+}

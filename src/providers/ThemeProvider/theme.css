@@ -1,10 +1,4 @@
-/* nutui 主题变量 */
-/* node_modules/@nutui/nutui-react-taro/dist/styles/variables.scss */
-
 :root,
 page {
-  --nutui-color-primary: #00d492;
-  --nutui-color-primary-stop-1: #4ef9c3;
-  --nutui-color-primary-stop-2: #00d492;
-  --nutui-font-size-base: 32px;
+  --primary-color: #c244de;
 }

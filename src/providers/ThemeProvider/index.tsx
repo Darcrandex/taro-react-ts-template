@@ -1,10 +1,9 @@
 /**
  * @name ThemeProvider
- * @description nutui 主题容器
+ * @description 主题容器
  * @author darcrand
  */
 
-import '@nutui/nutui-react-taro/dist/styles/themes/default.css'
 import { PropsWithChildren } from 'react'
 import './theme.css'
 

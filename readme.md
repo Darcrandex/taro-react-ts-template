@@ -12,7 +12,7 @@
 - tailwindcss@4
 - jotai
 - react-query@5 + axios-miniprogram
-- nutui-react-taro@3
+- taroify-ui
 
 ### init
 
@@ -69,6 +69,6 @@ import 'abort-controller/polyfill'
 globalThis.AbortController = window.AbortController
 ```
 
-### nut-ui
+### taroify-ui
 
-> [nutui-react-taro@3.x](https://nutui.jd.com/taro/react/3x/#/zh-CN/guide/intro-react)
+> [taroify-ui](https://taroify.github.io/taroify.com/introduce/) > [taroify 自定义图标](https://taroify.github.io/taroify.com/components/icon/#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87)

@@ -12,11 +12,8 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport<'webpack5'> = {
     projectName: 'taro-wp-v4',
     date: '2025-3-26',
-    designWidth(input) {
-      // 配置 NutUI 375 尺寸
-      if (typeof input === 'string' && input?.replace(/\\+/g, '/').indexOf('@nutui') > -1) {
-        return 375
-      }
+    designWidth() {
+     
       // 全局使用 Taro 默认的 750 尺寸
       return 750
     },
@@ -46,7 +43,6 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
     compiler: {
       type: 'webpack5',
 
-      // 使用 nutui，需要禁用 prebundle
       prebundle: { enable: false },
     },
 
@@ -57,8 +53,6 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
       postcss: {
         pxtransform: {
           enable: true,
-          // 包含 `nut-` 的类名选择器中的 px 单位不会被解析
-          config: { selectorBlackList: ['nut-'] },
         },
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true

@@ -1,0 +1,11 @@
+@import 'weapp-tailwindcss';
+
+/* 自定义主题变量 */
+@theme {
+  --color-primary: #0f766e;
+}
+
+:root,
+page {
+  background-color: #f6f6f6;
+}
